@@ -4,6 +4,7 @@ from keras.models import Model
 from keras.regularizers import l2
 from keras.optimizers import SGD
 from googlenet_custom_layers import PoolHelper, LRN
+import numpy as np
 
 def create_googlenet(weights_path=None):
     # creates googlenet inception v1
@@ -150,7 +151,7 @@ def create_googlenet(weights_path=None):
     
     
 if __name__ == '__main__':
-    img = imresize(imread('cat.jpg', mode='RGB'), (224, 224)).astype(np.float32)
+    img = imresize(imread('urquhardt.jpg', mode='RGB'), (224, 224)).astype(np.float32)
     img[:, :, 0] -= 123.68
     img[:, :, 1] -= 116.779
     img[:, :, 2] -= 103.939
